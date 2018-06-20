@@ -1,8 +1,8 @@
 FROM busybox
-RUN mkdir /file && echo "hello" > /file/index.html
+RUN mkdir /public && echo "hello" > /public/index.html
 
 FROM scratch
-COPY --from=0 /file/index.html /file/index.html
+COPY --from=0 /public/index.html /public/index.html
 ADD ./darkhttpd /darkhttpd
 ENTRYPOINT ["/darkhttpd"]
-CMD ["/file"]
+CMD ["/public"]
