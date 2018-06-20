@@ -1,4 +1,4 @@
-CFLAGS?=-O
+CFLAGS?=-Os
 LIBS=`[ \`uname\` = "SunOS" ] && echo -lsocket -lnsl`
 
 all: darkhttpd
