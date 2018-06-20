@@ -18,7 +18,7 @@ config-musl:
 	cd musl && ./configure --prefix=$(abspath .)/lib
 
 darkhttpd: lib darkhttpd.c
-	lib/bin/musl-gcc -static darkhttpd.c -o $@
+	lib/bin/musl-gcc -static $(CFLAGS) darkhttpd.c -o $@
 	strip darkhttpd
 
 clean:
