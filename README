@@ -1,6 +1,27 @@
 
+GitHub:https://github.com/SuperNG6/tiny-docker-httpd  
+DockerHub:https://hub.docker.com/r/superng6/darkhttpd
+
+# Ultra tiny docker image that serves file (less than 75kB)
+
+    docker pull superng6/darkhttpd
+
+# Version
+
+    2018-12-10 darkhttpd-1.12
+
+# Architecture
+
+| Architecture | Tag            |
+| ------------ | -------------- |
+| x86-64       | latest         |
+| arm64        | latest         |
+| armhf        | latest         |
+
 ## How to run darkhttpd
 --------------------
+
+    docker run --rm -it  -p 80:80/tcp -v /www:/wwww superng6/darkhttpd:latest
 
 Serve /var/www/htdocs on the default port (80 if running as root, else 8080):
   $ ./darkhttpd /var/www/htdocs
