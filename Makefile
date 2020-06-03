@@ -12,7 +12,7 @@ local-install-musl: make-musl
 	make -C musl install
 
 make-musl: config-musl
-	make -j5 -C musl
+	make -j$(nproc) -C musl
 
 config-musl:
 	cd musl && ./configure --prefix=$(abspath .)/lib
