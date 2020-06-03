@@ -21,7 +21,7 @@ DockerHub:https://hub.docker.com/r/superng6/darkhttpd
 ## How to run darkhttpd
 --------------------
 
-    docker run --rm -it  -p 80:80/tcp -v /www:/wwww superng6/darkhttpd:latest
+    docker run --rm -it  -p 80:80/tcp -v /www:/www superng6/darkhttpd:latest
 
 Serve /var/www/htdocs on the default port (80 if running as root, else 8080):
   $ ./darkhttpd /var/www/htdocs
