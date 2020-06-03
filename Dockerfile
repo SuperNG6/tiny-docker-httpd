@@ -3,7 +3,7 @@ FROM debian as builder
 RUN apt-get -y update \
 && apt-get -y install build-essential make curl wget unzip git \
 && cd /tmp \
-&& git clone https://github.com/iori-yja/tiny-docker-httpd.git \
+&& git clone https://github.com/SuperNG6/tiny-docker-httpd.git \
 && cd /tmp/tiny-docker-httpd \
 && make
 
