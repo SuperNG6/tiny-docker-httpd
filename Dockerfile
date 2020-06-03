@@ -1,8 +1,22 @@
-FROM busybox
-RUN mkdir /public && echo "hello" > /public/index.html
+FROM debian as builder
+# compiling static darkhttpd
+RUN apt-get -y update \
+&& apt-get -y install build-essential make curl wget unzip git \
+&& cd /tmp \
+&& git clone https://github.com/iori-yja/tiny-docker-httpd.git \
+&& cd /tmp/tiny-docker-httpd \
+&& make
 
+# install darkhttpd
 FROM scratch
-COPY --from=0 /public/index.html /public/index.html
-ADD ./darkhttpd /darkhttpd
-ENTRYPOINT ["/darkhttpd"]
-CMD ["/public"]
+# set label
+LABEL maintainer="NG6"
+# copy AriaNg
+COPY --from=builder /tmp/tiny-docker-httpd/darkhttpd /darkhttpd
+# darkhttpd port
+EXPOSE 80
+# html
+VOLUME [ "/wwww" ]
+# start darkhttpd
+ENTRYPOINT [ "/darkhttpd" ]
+CMD [ "/www" ]
