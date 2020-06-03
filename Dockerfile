@@ -17,6 +17,7 @@ COPY --from=builder /tmp/tiny-docker-httpd/darkhttpd /darkhttpd
 EXPOSE 80
 # html
 VOLUME [ "/wwww" ]
+WORKDIR /wwww
 # start darkhttpd
 ENTRYPOINT [ "/darkhttpd" ]
 CMD [ "/www" ]
