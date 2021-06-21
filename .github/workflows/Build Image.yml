@@ -1,8 +1,7 @@
 name: Build Image
 
 on:
- watch:
-    types: started
+  workflow_dispatch:
 
 jobs:
   buildx:
